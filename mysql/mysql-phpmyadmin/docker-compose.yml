@@ -1,0 +1,14 @@
+version: "3"
+services:
+  db:
+    image: genschsa/mysql-employees
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      - PMA_HOST=db
+    depends_on:
+      - db
+    ports:
+      - 8000:80
